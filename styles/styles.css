@@ -93,7 +93,8 @@ details[open] > summary::after {
 
 @keyframes details_children_open {
 	from {
-		transform: translateY(calc(var(--summary-margin-bottom) * -1)) rotateX(60deg);
+		transform-origin: top;
+		transform: translateY(calc(var(--summary-margin-bottom) * -1)) rotateX(90deg);
 		opacity: 0;
 	}
 	to {
@@ -102,10 +103,16 @@ details[open] > summary::after {
 	}
 }
 
+@keyframes grow_font_size {
+	from { font-size: 0;   }
+	to   { font-size: 1em; }
+}
+
 details[open] summary ~ * {
 	margin-right: 2em;
 	opacity: 0;
-	animation: details_children_open 0.3s ease-out 0.1s forwards;
+	animation: grow_font_size 0.2s ease-out,
+		details_children_open 0.25s ease-out 0.2s both;
 }
 
 /* Mobile */
