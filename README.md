@@ -13,4 +13,4 @@ This is my solution for the FAQ accordion card coding challenge from frontendmen
 
 ## Important
 
-While the mobile version is mostly done, the desktop version hasn't been much worked on yet.
+I am very new to web development, so I'm not very knowledgeable. The pictures' CSS is extremely messy with tons of magic numbers.
