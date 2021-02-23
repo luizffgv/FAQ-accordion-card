@@ -1,6 +1,8 @@
 :root {
-	--card-width-desktop: 1080px;
+	--card-width-desktop: 960px;
+	--card-height-desktop: 500px;
 	--card-width-mobile: 320px;
+	--card-decoration-height-desktop: 100%;
 	--card-decoration-height-mobile: 135px;
 	--summary-margin-bottom: 17.5px;
 	--summary-open-margin-bottom: 1em;
@@ -53,7 +55,7 @@ summary {
 	outline: none;
 	cursor: pointer;
 	user-select: none;
-	font-size: 13px;
+	font-size: 14px;
 	color: hsl(240, 6%, 33%);
 	margin-bottom: var(--summary-margin-bottom);
 }
@@ -127,7 +129,6 @@ details[open] summary ~ * {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	/* justify-content: center; */
 
 	/* Overriden for desktop: */
 	min-height: 470px;
@@ -135,8 +136,6 @@ details[open] summary ~ * {
 
 /* Mobile */
 .card > .decoration {
-	display: flex;
-	justify-content: center;
 	height: var(--card-decoration-height-mobile);
 	margin-bottom: 0px;
 	margin-top: 0px;
@@ -146,19 +145,23 @@ details[open] summary ~ * {
 /* Mobile */
 #bg-illustration {
 	position: absolute;
+	margin-left: 37.5px;
 }
 
 /* Mobile */
 #box-illustration {
-	display: none; /* Overriden for desktop */
 	position: absolute;
+	display: none; /* Overriden for desktop */
 }
 
 /* Mobile */
 #woman-online-illustration {
-	margin-top:-107px;
 	position: absolute;
-	margin-right: 30px;
+}
+
+#woman-online-illustration > img {
+	margin-top:-107px;
+	margin-left: 10px;
 }
 
 
@@ -181,22 +184,59 @@ details[open] summary ~ * {
 @media screen and (min-aspect-ratio: 1/1) {
 	.card {
 		flex-direction: row;
-		aspect-ratio: 2;
+		min-height: unset;
+
+		background-image: url("../images/bg-pattern-desktop.svg");
+		background-repeat: no-repeat;
+		background-position: -580px 66.6%;
+
+		height: var(--card-height-desktop);
 		width: var(--card-width-desktop)
 	}
 
 	.card > .decoration {
+		display: flex;
+		align-items: center;
+
+		min-height: unset;
+		height: 100%;
 		width: 50%;
 	}
 
 	#bg-illustration {
+		margin: unset;
+		position: absolute;
+	}
+
+	#bg-illustration > img{
+
+		top: 50px;
+		right: 122.5px;
 	}
 
 	#box-illustration {
-		/* display: unset; */
+		display: unset;
+	}
+
+	#box-illustration img {
+		position: relative;
+		right: 95px;
+		top: 45px;
 	}
 
 	#woman-online-illustration {
+		position: unset;
+
+		margin-top: unset;
+		margin-right: unset;
+	}
+
+	#woman-online-illustration img {
+		margin: unset;
+
+		position: relative;
+		right: 85px;
+
 	}
 
 	/* #woman-online-illustration > img{
@@ -210,4 +250,22 @@ details[open] summary ~ * {
 	#faq > h1 {
 		text-align: left;
 	}
+}
+
+.attribution {
+    font-size: 18px;
+	position: absolute;
+	bottom: 0;
+    text-align: center;
+    font-weight: normal;
+    color: white;
+    text-shadow: 0 0.1em 0.2em black;
+}
+
+
+.attribution a {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: coral;
 }
